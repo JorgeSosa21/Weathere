@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="jorge.vargas.weathere.viewModel.MainActivityViewModel" />
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onItemClick(position)}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_tb"
+            android:layout_marginStart="@dimen/margin_lr"
+            android:layout_marginEnd="@dimen/margin_lr"
+            android:background="@drawable/round_corner"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tb_inter"
+                android:layout_marginStart="@dimen/margin_lr_inter"
+                android:layout_marginEnd="@dimen/margin_lr_inter"
+                android:text="@{viewModel.getCityAt(position).name}"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/title_size"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tb_inter"
+                android:layout_marginBottom="@dimen/margin_tb_inter"
+                android:layout_marginStart="@dimen/margin_lr_inter"
+                android:layout_marginEnd="@dimen/margin_lr_inter"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.getCityAt(position).Weather.temp + `°`}"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/deegres_size"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType=""
+                        android:text="@{viewModel.getCityAt(position).Weather.description}"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/description_size"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:contentDescription="@string/app_name"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="@dimen/margin_lr"
+                    android:src="@mipmap/sunny"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="@dimen/margin_tb_inter"
+                android:layout_marginStart="@dimen/margin_lr_inter"
+                android:layout_marginEnd="@dimen/margin_lr_inter"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/wind"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/app_name"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@{viewModel.getCityAt(position).Weather.windSpeed + ` m/s`}"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="@dimen/margin_lr_inter"
+                    android:layout_marginEnd="@dimen/margin_lr_inter"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/humidity"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/app_name"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@{viewModel.getCityAt(position).Weather.humidity + `%`}"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="@dimen/margin_lr_inter"
+                    android:layout_marginEnd="@dimen/margin_lr_inter"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/sunrise"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/app_name"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@{viewModel.getCityAt(position).getHourSunrise}"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="@dimen/margin_lr_inter"
+                    android:layout_marginEnd="@dimen/margin_lr_inter"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/sunset"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/app_name"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@{viewModel.getCityAt(position).getHourSunset}"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="@dimen/margin_lr_inter"
+                    android:layout_marginEnd="@dimen/margin_lr_inter"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

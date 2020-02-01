@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Margins
+    <dimen name="margin_lr">8dp</dimen>
+    <dimen name="margin_tb">6dp</dimen>
+    <dimen name="margin_lr_inter">14dp</dimen>
+    <dimen name="margin_tb_inter">12dp</dimen>
+
+    //Text Size
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="description_size">16sp</dimen>
+    <dimen name="deegres_size">34sp</dimen>
+</resources>
